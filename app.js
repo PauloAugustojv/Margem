@@ -1,14 +1,13 @@
 const calcular17 = document.getElementById('calcular17')
 const calcular25 = document.getElementById('calcular25')
-
 const calcularMargem = document.getElementById('calcularMargem')
 
 calcular17.addEventListener('click', function () {
-  calcularPrecoVenda(17)
+  calcularPrecoVenda(0.17) // Margem de 17%
 })
 
 calcular25.addEventListener('click', function () {
-  calcularPrecoVenda(25)
+  calcularPrecoVenda(0.25) // Margem de 25%
 })
 
 calcularMargem.addEventListener('click', function () {
@@ -21,18 +20,20 @@ calcularMargem.addEventListener('click', function () {
     return
   }
 
-  calcularPrecoVenda(margemDesejada)
+  calcularPrecoVenda(margemDesejada / 100) // Converte a margem desejada em decimal
 })
 
-function calcularPrecoVenda(margem) {
+function calcularPrecoVenda(rentabilidade) {
   const precoCusto = parseFloat(document.getElementById('precoCusto').value)
 
-  if (isNaN(precoCusto)) {
-    alert('Por favor, insira um valor válido para o preço de custo.')
+  if (isNaN(precoCusto) || isNaN(rentabilidade)) {
+    alert(
+      'Por favor, insira valores válidos para o preço de custo e rentabilidade.'
+    )
     return
   }
 
-  const precoVenda = precoCusto + precoCusto * (margem / 100)
+  const precoVenda = precoCusto / (1 - rentabilidade)
   document.getElementById('precoVenda').textContent =
-    'R$ ' + precoVenda.toFixed(2)
+    'Preço de Venda: R$ ' + precoVenda.toFixed(2)
 }
