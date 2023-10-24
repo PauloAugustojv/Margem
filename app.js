@@ -34,6 +34,5 @@ function calcularPrecoVenda(rentabilidade) {
   }
 
   const precoVenda = precoCusto / (1 - rentabilidade)
-  document.getElementById('precoVenda').textContent =
-    'Preço de Venda: R$ ' + precoVenda.toFixed(2)
+  document.getElementById('precoVenda').textContent = precoVenda.toFixed(2)
 }
