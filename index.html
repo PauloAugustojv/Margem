@@ -5,27 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>Calculadora de Preço de Venda</title>
+    <style>
+      /* Adicionando estilo para tornar a calculadora desconto vermelha */
+    </style>
   </head>
   <body>
-    <main>
-      <div class="header">
-        <h1>Hospitalar & Licitação</h1>
-        <h2>Calculadora de Margem</h2>
+    <div class="calculator-container">
+      <div class="calculator" id="calculatorMargin">
+        <h1>Calculadora de Margem</h1>
+        <label for="precoCusto">Preço de Custo:</label>
+        <input type="number" id="precoCusto" placeholder="Preço de Custo" />
+        <label for="margemDesejada">Margem:</label>
+        <input type="number" id="margemDesejada" placeholder="Margem" />
+        <button id="calcularMargem">Calcular</button>
+        <button id="calcular17">17%</button>
+        <button id="calcular25">25%</button>
+        <p>Preço de Venda: <span id="precoVenda"></span></p>
       </div>
 
-      <input type="number" id="precoCusto" placeholder="Preço de Custo" />
-
-      <input type="number" id="margemDesejada" placeholder="Margem" />
-
-      <button id="calcularMargem">Calcular</button>
-      <button id="calcular17">17%</button>
-      <button id="calcular25">25%</button>
-
-      <p>Preço de Venda: <span id="precoVenda"></span></p>
-    </main>
-
-    <script src="app.js"></script>
+      <div class="calculator" id="calculatorDiscount">
+        <h1>Calculadora de Desconto</h1>
+        <label for="precoVendaDesconto">Preço de Venda:</label>
+        <!-- Modificando para exibir o resultado no input -->
+        <input
+          type="number"
+          id="precoVendaDesconto"
+          placeholder="Preço de Venda"
+        />
+        <label for="precoDesconto">Preço a ser descontado:</label>
+        <input
+          type="number"
+          id="precoDesconto"
+          placeholder="Preço a ser descontado"
+        />
+        <button color="#ff6666" id="calcularDesconto">Calcular Desconto</button>
+        <br /><br />
+        <!-- Adicionando ID para o resultado do desconto -->
+        <span id="resultadoDesconto"></span>
+      </div>
+    </div>
 
     <footer>&copy; 2023 Paulo Augusto. Todos os direitos reservados.</footer>
+
+    <script src="app.js"></script>
   </body>
 </html>
